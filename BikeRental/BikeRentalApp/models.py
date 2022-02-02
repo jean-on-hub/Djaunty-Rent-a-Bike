@@ -25,6 +25,7 @@ class Renter(models.Model):
     
 class Rentals(models.Model):
     bike = models.ForeignKey(Bike,on_delete =models.CASCADE)
+    renter = models.ForeignKey(Renter, on_delete=models.CASCADE, default=0)
     date = models.DateField(default=datetime.date.today)
     price = models.FloatField(default=0.0)
     def calc_price(self):
